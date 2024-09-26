@@ -1,0 +1,15 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Product'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZI_Product_mrg 
+    as select from zproduct_mrg
+    association [0..*] to ZMRG_ProductText as _Text
+    on $projection.Product = _Text.Product
+{
+    key product as Product,
+    product_type as ProductType,
+    authorization_group as AuthorizationGroup,
+    creation_date_time as CreationDateTime,
+    _Text
+}

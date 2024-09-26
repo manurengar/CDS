@@ -1,0 +1,16 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Product Text CDS'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define view entity ZMRG_ProductText
+  as select from zmrgproducttext
+{
+  key language     as Language,
+  key product      as Product,
+      product_name as ProductName
+}

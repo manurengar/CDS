@@ -1,0 +1,14 @@
+@EndUserText.label : 'Product'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zproduct_mrg {
+
+  key client          : abap.clnt not null;
+  key product         : matnr not null;
+  product_type        : zmtart;
+  authorization_group : begru;
+  creation_date_time  : timestampl;
+
+}

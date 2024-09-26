@@ -1,0 +1,19 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Sales Order Schedule Line'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define view entity ZMRG_SalesOrderScheduleLine
+  as select from zsalesordersline
+  association [1..1] to ZI_SalesOrderItem_MRG as _SalesOrderItem on  $projection.SalesOrder     = _SalesOrderItem.Salesorder
+                                                                 and $projection.SalesOrderitem = _SalesOrderItem.Salesorderitem
+{
+  key salesorder             as SalesOrder,
+  key salesorderitem         as SalesOrderitem,
+  key salesorderscheduleline as SalesOrderScheduleline,
+      _SalesOrderItem
+}

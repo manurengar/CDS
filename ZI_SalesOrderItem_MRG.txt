@@ -1,0 +1,29 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Sales Order Item'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define view entity ZI_SalesOrderItem_MRG as select from zsalesorderitem1
+association [0..1] to ZI_Product_mrg as _Product
+on $projection.Product = _Product.Product
+{
+    key salesorder as Salesorder,
+    key salesorderitem as Salesorderitem,
+    product as Product,
+    @Semantics.quantity.unitOfMeasure : 'Orderquantityunit'
+    orderquantity as Orderquantity,
+    orderquantityunit as Orderquantityunit,
+    @Semantics.amount.currencyCode : 'Transactioncurrency'
+    netamount as Netamount,
+    transactioncurrency as Transactioncurrency,
+    creationdate as Creationdate,
+    createdbyuser as Createdbyuser,
+    creationdatetime as Creationdatetime,
+    lastchangedbyuser as Lastchangedbyuser,
+    lastchangeddatetime as Lastchangeddatetime,
+    _Product
+}

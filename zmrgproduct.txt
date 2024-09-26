@@ -1,0 +1,17 @@
+@EndUserText.label : 'Product'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zmrgproduct {
+
+  key client          : abap.clnt not null;
+  key product         : matnr not null;
+  product_type        : mtart;
+  authorization_group : begru;
+  @Semantics.amount.currencyCode : 'zmrgproduct.currency'
+  price               : zkbetr;
+  currency            : waers_curc;
+  creation_date_time  : timestampl;
+
+}

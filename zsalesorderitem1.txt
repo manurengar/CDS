@@ -1,0 +1,24 @@
+@EndUserText.label : 'Sales Order Item'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zsalesorderitem1 {
+
+  key client          : abap.clnt not null;
+  key salesorder      : zvbeln not null;
+  key salesorderitem  : zposnr not null;
+  product             : matnr;
+  @Semantics.quantity.unitOfMeasure : 'zsalesorderitem1.orderquantityunit'
+  orderquantity       : zkwmeng;
+  orderquantityunit   : zvrkme;
+  @Semantics.amount.currencyCode : 'zsalesorderitem1.transactioncurrency'
+  netamount           : znetwr_ap;
+  transactioncurrency : zwaerk;
+  creationdate        : zerdat;
+  createdbyuser       : zernam;
+  creationdatetime    : zcreation_date_time_048;
+  lastchangedbyuser   : zaename_048;
+  lastchangeddatetime : zlast_changed_date_time_048;
+
+}

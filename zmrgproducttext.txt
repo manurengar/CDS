@@ -1,0 +1,13 @@
+@EndUserText.label : 'Product Text'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zmrgproducttext {
+
+  key client   : abap.clnt not null;
+  key language : spras not null;
+  key product  : matnr not null;
+  product_name : maktx;
+
+}
